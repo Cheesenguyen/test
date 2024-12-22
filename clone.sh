@@ -1,15 +1,17 @@
  #!/bin/bash 
 
 
-echo "Enter the link's repo you want to clone"
-read repo_link
+repo_url=$1
 
-git clone "$repo_link" 
+git clone $repo_url
 
-repo_name=$(basename -s .git $repo_link)
+repo_name=$(basename $repo_url)
 
-#source
-cd "$repo_name"
+
+alias ch_dir="cd $repo_name"
+source ch_dir
+echo "Đã clone thành công và chuyển vào thư mục: $(repo_name)"
+
 
 
 
